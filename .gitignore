@@ -1,0 +1,7 @@
+venv/
+venv/Lib/site-packages
+db.sqlite3
+__pycache__/
+/keydev/data.py
+.env.prod
+.env.prod.db
