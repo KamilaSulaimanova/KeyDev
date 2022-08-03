@@ -1,16 +1,27 @@
 from django.shortcuts import render
-from .models import Messages
+from .models import Messages, Services, Team
+from .serializers import ServicesSerializer, TeamSerializer, MessagesSerializer
 from django.core.mail import EmailMessage
 from django.contrib import messages
 import sweetify
 from django.http import HttpResponseRedirect
-from .message_text import message_text
 from rest_framework.generics import CreateAPIView
+from rest_framework.viewsets import ModelViewSet
+
+
+class ServicesViewSet(ModelViewSet):
+    queryset = Services.objects.all()
+    serializer_class = ServicesSerializer
+
+
+class TeamViewSet(ModelViewSet):
+    queryset = Team.objects.all()
+    serializer_class = TeamSerializer
 
 
 class MessageCreateAPIView(CreateAPIView):
-    queryset = Message.objects.all()
-    serializer_class = MessageSerializer
+    queryset = Messages.objects.all()
+    serializer_class = MessagesSerializer
 
     def perform_create(self, serializer):
         name = self.request.data['name']

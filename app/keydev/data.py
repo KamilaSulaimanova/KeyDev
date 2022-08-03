@@ -1,0 +1,5 @@
+email_user = 'site@keydev.org.kg'
+email_password = '8ml#XhOv'
+email_server = '194.67.93.49'
+secret_key = 'django-insecure-07dxt2deo1q@!ay1z41xlvimsh0q^kz0qh=px$lv&5&1hv%ox+'
+url_path = 'datasee/'

@@ -17,12 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from . import data
+import os
 
 urlpatterns = [
-    path(data.url_path, admin.site.urls),
+    path(os.environ.get('url_path'), admin.site.urls),
     path('', include('keydev_app.urls')),
 ] 
 if bool(settings.DEBUG):
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

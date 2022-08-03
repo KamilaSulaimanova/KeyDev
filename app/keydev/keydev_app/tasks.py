@@ -3,6 +3,7 @@ from django.conf import settings
 import telegram_send
 import time
 from celery import shared_task
+from .message_text import message_text
 
 
 @shared_task
