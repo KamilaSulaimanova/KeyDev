@@ -1,7 +1,11 @@
 version: '3.8'
 
 services:
+  redis:
+    image: redis
+    restart: always
   web:
+    restart: always
     build: ./app
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
@@ -12,6 +16,13 @@ services:
       - ./.env.dev
     depends_on:
       - db
+  worker:
+    restart: always
+    build:
+      context: ./app
+    env_file:
+      - ./.env.prod
+    command: ["celery", "-A", "website", "worker", "-l", "info"]
   db:
     image: postgres:13.0-alpine
     volumes:
