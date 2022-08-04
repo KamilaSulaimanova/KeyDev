@@ -3,6 +3,7 @@ djangorestframework==3.13.1
 sweetify==2.0.0
 whitenoise==5.2.0
 psycopg2-binary==2.9.1
+django-cors-headers
 gunicorn==20.1.0
 telegram-send
 celery
