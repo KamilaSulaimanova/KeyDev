@@ -1,0 +1,36 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 100px;
+    align-items: center;
+    position: fixed;
+    background: transparent;
+    transition: all 0.6s ease-out;
+}
+
+.header.active{
+    box-shadow: 0 3px 6px 3px rgb(0 0 0 / 6%);
+    background: #fff;
+    z-index: 999999;
+}
+
+.logo{
+    width: 10%;
+}
+
+.menu{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu a{
+    color: #333333;
+    font-size: 15px;
+}
+
+.menu a:hover{
+    color: #f63854;
+    transition: all 0.6s ease-out;
+}
+

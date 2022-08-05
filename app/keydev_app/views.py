@@ -1,10 +1,6 @@
 from django.shortcuts import render
 from .models import Messages, Services, Team
 from .serializers import ServicesSerializer, TeamSerializer, MessagesSerializer
-from django.core.mail import EmailMessage
-from django.contrib import messages
-import sweetify
-from django.http import HttpResponseRedirect
 from rest_framework.generics import CreateAPIView
 from rest_framework.viewsets import ModelViewSet
 
@@ -30,9 +26,7 @@ class MessageCreateAPIView(CreateAPIView):
         message_text = self.request.data['message']
         subject = self.request.data['name']
         msg = [name, email, phone, message]
-        task.send_telegram_email.delay(msg)
-        sweetify.success(request, 'Отправлено!', text='Уважаемый, {} Спасибо большое за Ваше обращение'.format(name),
-                         persistent='Вернуться', icon='success')
+        task.send_telegram_email.delay(*msg)
         serializer.save(name=name, email=email, phone=phone, message=message)
         
 
