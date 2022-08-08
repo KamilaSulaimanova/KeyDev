@@ -7,6 +7,8 @@ __pycache__/
 .env.prod.db
 frontend/node_modules/
 app/.idea/
+app/entrypoint.sh
+app/entrypoint.prod.sh
 # Byte-compiled / optimized / DLL files
 *.py[cod]
 *$py.class

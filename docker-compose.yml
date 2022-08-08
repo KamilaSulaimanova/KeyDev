@@ -32,7 +32,7 @@ services:
       context: ./app
     env_file:
       - ./.env.dev
-    command: ["celery", "-A", "website", "worker", "-l", "info"]
+    command: ["celery", "-A", "keydev", "worker", "-l", "info"]
     depends_on:
       - web
       - redis
