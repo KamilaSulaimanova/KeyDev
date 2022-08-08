@@ -6,7 +6,7 @@ import { FaNetworkWired } from "react-icons/fa";
 import { FaMicrosoft } from "react-icons/fa";
 import { FaChalkboard } from "react-icons/fa";
 
-const baseURL = 'http://127.0.0.1:8000/services/'
+const baseURL = 'http://127.0.0.1:8000/api/services/'
 
 export default function Services() {
   const [services, setServices] = React.useState(null);
