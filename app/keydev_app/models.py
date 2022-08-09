@@ -4,17 +4,19 @@ from django.db import models
 class Services(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
+    tags = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
 
 class Team(models.Model):
-    name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     stack = models.CharField(max_length=255)
-    facebook = models.URLField(max_length=50)
-    linkedin = models.URLField(max_length=50)
+    facebook = models.URLField(max_length=100)
+    linkedin = models.URLField(max_length=100)
 
     def __str__(self):
         return self.name
