@@ -17,3 +17,6 @@ a{
 p{
     font-size: 16px;
 }
+input, textarea { 
+    font-family: Comfortaa, cursive;
+}

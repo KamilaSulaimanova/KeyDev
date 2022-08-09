@@ -1,11 +1,12 @@
 import React from 'react'
 import axios from 'axios'
+import swal from 'sweetalert';
 import './Contacts.css'
 
 const massagePostURL = 'http://127.0.0.1:8000/api/messages/send/'
 
 export default function Contacts() {
-  //send post request to server to send message with axios
+
   const sendMessage = (e) => {
     e.preventDefault();
     const data = {
@@ -14,12 +15,26 @@ export default function Contacts() {
       message: e.target.message.value,
       phone: e.target.phone.value
     }
-    console.log(data)
     axios.post(massagePostURL, data)
       .then(res => {
-        console.log(res)
+        var message = ''.concat('Уважаемый, ', 
+                                res.data.name, 
+                                '! Благодарим Вас за обращение к нам. В ближайшее время мы свяжемся с Вами.');
+        swal({
+          title: "Отлично!",
+          text: message,
+          icon: "success",
+          button: "OK",
+        }).then(() => {
+          window.location.reload();
+        });
       }).catch(err => {
-        console.log(err)
+        swal({
+          title: "Ошибка!",
+          text: err.error,
+          icon: "error",
+          button: "OK",
+        })
       }
       )
   }
