@@ -1,7 +1,7 @@
 .section {
     display: flex;
     justify-content: space-between;
-    padding: 70px 100px;
+    padding: 200px 200px;
 }
 
 .section-description{
@@ -11,6 +11,13 @@
 
 .section-img{
     width: 50%;
+}
+
+.section-img img{
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section h1{

@@ -11,7 +11,7 @@ export default function Footer() {
            <a href="https://www.instagram.com/key_dev.kg/"><FaInstagram/></a>
            <a href="#"><FiFacebook/></a>
         </div>
-        <div className='menu'>
+        <div className='footer-menu'>
             <a href="#">Главная</a>
             <a href="#">Услуги</a>
             <a href="#">О Нас</a>

@@ -6,6 +6,7 @@
     position: fixed;
     background: transparent;
     transition: all 0.6s ease-out;
+    width: calc(95% - 100px);
 }
 
 .header.active{
@@ -15,18 +16,20 @@
 }
 
 .logo{
-    width: 10%;
+    max-width: 100px;
 }
 
 .menu{
-    width: 40%;
+    width: 30%;
     display: flex;
     justify-content: space-between;
+    padding-right: 100px;
 }
 
 .menu a{
+    font-size: 18px;
+    font-weight: 500;
     color: #333333;
-    font-size: 15px;
 }
 
 .menu a:hover{

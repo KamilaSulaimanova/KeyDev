@@ -6,6 +6,12 @@
     padding: 5px 100px;
 }
 
+.contact-form {
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .contacts-row{
     display: flex;
     justify-content: space-between;
@@ -56,4 +62,9 @@
 .contacts-button{
     border-radius: 5px;
     padding: 15px 60px;
+}
+
+.swal-text {
+    font-size: 18px;
+    text-align: center;
 }

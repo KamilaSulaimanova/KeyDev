@@ -6,32 +6,32 @@ from django.template.loader import render_to_string
 from .tgram import bot
 
 @shared_task
-def send_email_task(name, email, phone, message):
+def send_email_task(data):
     email_from = settings.EMAIL_HOST_USER
-    mail_list = [email, ]
+    mail_list = [data['email'], ]
     subject = 'KeyDev LLC'
     try:
         html_message = render_to_string('email_message.html',
-                                        {'name': name, 'phone': phone, 'message': message})
+                                        {'name': data['name'], 'phone': data['phone'], 'message': data['message']})
     except Exception as e:
         print(e)
         html_message = '<h1>Ошибка отправки сообщения</h1>'
     else:
         try:
-            send_mail(subject, message, email_from, mail_list, html_message=html_message)
+            send_mail(subject, data['message'], email_from, mail_list, html_message=html_message)
         except BadHeaderError:
             print('Не удалось отправить сообщение')
         else:
-            print(f'Сообщение отправлено на почту {email}')
+            print(f"Сообщение отправлено на почту {data['email']}")
 
 
 @shared_task
-def send_telegram_task(name, email, phone, message):
+def send_telegram_task(data):
     message = f"Новое обращение! \n" \
-              f"Имя: {name}\n" \
-              f"Телефон: {phone}\n" \
-              f"Электронная почта: {email}\n" \
-              f"Сообщение: {message}"
+              f"Имя: {data['name']}\n" \
+              f"Телефон: {data['phone']}\n" \
+              f"Электронная почта: {data['email']}\n" \
+              f"Сообщение: {data['message']}"
     try:
         with bot:
             bot.loop.run_until_complete(bot.send_message(int(os.environ.get('CHAT_ID')), message))
