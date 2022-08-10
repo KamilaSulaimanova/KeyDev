@@ -3,7 +3,9 @@ from django.core.mail import send_mail, EmailMessage, BadHeaderError
 from django.conf import settings
 from celery import shared_task
 from django.template.loader import render_to_string
-from .tgram import bot
+from .models import MessageRecipient
+import telebot
+
 
 @shared_task
 def send_email_task(data):
@@ -33,11 +35,11 @@ def send_telegram_task(data):
               f"Электронная почта: {data['email']}\n" \
               f"Сообщение: {data['message']}"
     try:
-        with bot:
-            bot.loop.run_until_complete(bot.send_message(int(os.environ.get('CHAT_ID')), message))
+        bot = telebot.TeleBot(os.environ.get('TOKEN'))
+        for recipient in MessageRecipient.objects.all():
+            bot.send_message(int(recipient.telegram_chat_id), message)
     except Exception as e:
         print(e)
         print('Не удалось отправить сообщение')
     else:
         print('Сообщение отправлено в Telegram')
-
