@@ -17,9 +17,7 @@ services:
   web:
     restart: always
     build: ./app
-    command: > 
-      sh -c "python keydev_app/tgram.py
-      && python manage.py runserver 0.0.0.0:8000"
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./app/:/usr/src/app/
     ports:

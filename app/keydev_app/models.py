@@ -32,3 +32,15 @@ class Messages(models.Model):
         return self.name
 
 
+# Класс для создания списка получателей сообщений из Telegram и почты
+class MessageRecipient(models.Model):
+    name = models.CharField(max_length=50, verbose_name='Имя получателя')
+    email = models.EmailField(verbose_name='Электронная почта')
+    telegram_chat_id = models.CharField(max_length=10, verbose_name='ID чата в Telegram')
+
+    class Meta:
+        verbose_name = 'Внутренний получатель'
+        verbose_name_plural = 'Внутренние получатели'
+
+    def __str__(self):
+        return self.name
