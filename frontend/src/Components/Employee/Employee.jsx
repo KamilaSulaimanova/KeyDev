@@ -26,13 +26,9 @@ export default function Employee() {
           <div className='row'>
             <div className='left-person team-card'>
               <div className='front-side'>
-              if ({employee.background_color} = Blue) { 
-                <div className='blue team-card-title'>
+                <div className={`${employee.background_color} team-card-title`}>
                   <p>{employee.first_name}</p>
-                </div>} else {
-                <div className='red team-card-title'>
-                  <p>{employee.first_name}</p>
-                </div>}
+                </div>
                 <p className='team-card-description'>{employee.title}</p>
                 <div className='footer-card'>
                   <a href="#"><AiOutlinePlus/>More info</a>

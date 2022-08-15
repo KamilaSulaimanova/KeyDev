@@ -17,8 +17,8 @@ class Employee(models.Model):
     facebook = models.URLField(max_length=100)
     linkedin = models.URLField(max_length=100)
     CHOICES = (
-        ('Blue', 'Blue'),
-        ('Red', 'Red'),
+        ('blue', 'blue'),
+        ('red', 'red'),
     )
     background_color = models.CharField(choices=CHOICES, max_length=255)
 
