@@ -4,7 +4,12 @@ import img from '../img/logo.png'
 
 export default function Header() { 
   const [header, setHeader] = useState(false);
+  const [active, setActive] = useState(false);
 
+  const handelmenu = (e) => {
+    e.preventDefault()
+    setActive(!active);
+  }
   const changeHeader = () => {
     if(window.scrollY >= 30){
       setHeader(true)
@@ -20,10 +25,30 @@ export default function Header() {
             <img className='logo' src={img} alt="" />
         </div>
         <div className='menu'>
-            <a href="#">Главная</a>
-            <a href="#">Услуги</a>
-            <a href="#">О Нас</a>
-            <a href="#">Контакты</a>
+          <a href="#section">Главная</a>
+          <a href="#services">Услуги</a>
+          <a href="#team">О Нас</a>
+          <a href="#contacts">Контакты</a>
+        </div>
+        <div className='mobile-menu'>
+          <a href="" className="menu-btn" onClick={handelmenu}>
+            {active ? 
+            <div>
+              <a className='menu-active'>
+              <span></span>
+              </a>
+              <div className='side-bar'>
+               <div className='menu-side-bar'>
+                <a href="#section">Главная</a>
+                <a href="#services">Услуги</a>
+                <a href="#team">О Нас</a>
+                <a href="#contacts">Контакты</a>
+               </div>
+              </div>
+            </div> 
+              : 
+              <span></span>}
+          </a>
         </div>
     </div>
   )

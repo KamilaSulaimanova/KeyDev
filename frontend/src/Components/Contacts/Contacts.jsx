@@ -41,7 +41,7 @@ export default function Contacts() {
   
 
   return (
-      <div className='contacts'>
+      <div className='contacts' id='contacts'>
           <form className="contact-form" onSubmit={sendMessage}>
             <h1 className='section-title'>СВЯЖИТЕСЬ С НАМИ</h1>
             <div className='contacts-row'>

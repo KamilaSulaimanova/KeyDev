@@ -4,7 +4,7 @@ import sectionImg from '../img/sectionImg.png'
 
 export default function Section() {
   return (
-    <div className='section'>
+    <div className='section' id='section'>
       <div className='section-description'>
         <h1>Key Dev</h1>
         <h2>ВАШ МОСТ К УСПЕХУ</h2>

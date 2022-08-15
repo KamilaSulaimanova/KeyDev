@@ -46,6 +46,53 @@
 
 .card-icon{
     margin-top: 40px;
-    font-size: 60px;
+    font-size: 30px;
     color: #dd4722;
+}
+@media (max-width: 1400px){
+    .services-row{
+        flex-wrap: wrap;
+    }
+    .services-card{
+        width: 22%;
+        height: 220px;
+    }
+    .card-icon{
+        font-size: 26px;
+    }
+    .services-card-title{
+        font-size: 13px;
+    }
+    p{
+        font-size: 12px;
+    }
+}
+@media (max-width: 1024px){
+    .services{
+        padding: 5px 50px;
+    }
+    .services-card{
+        width: 45%;
+    }
+}
+
+@media (max-width: 800px){
+    .services{
+        padding: 5px 20px;
+    }
+    .services-card{
+        width: 47%;
+    }
+    .card-icon{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px){
+    .services-card{
+        width: 100%;
+    }
+    .card-icon{
+        font-size: 25px;
+    }
 }

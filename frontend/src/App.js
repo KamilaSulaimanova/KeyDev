@@ -5,7 +5,7 @@ import Header from './Components/Header/Header';
 import Particles from './Components/Particles/Particles';
 import Section from './Components/Section/Section';
 import Services from './Components/Services/Services';
-import Team from './Components/Team/Team';
+import Employee from './Components/Employee/Employee';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Header/>
       <Section/>
       <Services/>
-      <Team/>
+      <Employee/>
       <Contacts/>
       <Footer/>
     </div>

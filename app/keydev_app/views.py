@@ -3,8 +3,8 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from . import tasks
-from .models import Messages, Services, Team
-from .serializers import ServicesSerializer, TeamSerializer, MessagesSerializer
+from .models import Messages, Services, Employee, Stack
+from .serializers import ServicesSerializer, EmployeeSerializer, StackSerializer, MessagesSerializer
 
 
 class ServicesViewSet(ModelViewSet):
@@ -12,9 +12,14 @@ class ServicesViewSet(ModelViewSet):
     serializer_class = ServicesSerializer
 
 
-class TeamViewSet(ModelViewSet):
-    queryset = Team.objects.all()
-    serializer_class = TeamSerializer
+class EmployeeViewSet(ModelViewSet):
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeSerializer
+
+
+class StackViewSet(ModelViewSet):
+    queryset = Stack.objects.all()
+    serializer_class = StackSerializer
 
 
 @api_view(['POST'])

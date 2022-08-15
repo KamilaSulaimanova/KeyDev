@@ -10,16 +10,28 @@ class Services(models.Model):
         return self.name
 
 
-class Team(models.Model):
+class Employee(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
-    stack = models.CharField(max_length=255)
     facebook = models.URLField(max_length=100)
     linkedin = models.URLField(max_length=100)
+    CHOICES = (
+        ('Blue', 'Blue'),
+        ('Red', 'Red'),
+    )
+    background_color = models.CharField(choices=CHOICES, max_length=255)
 
     def __str__(self):
-        return self.name
+        return self.first_name
+
+
+class Stack(models.Model):
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    skill = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.employee.first_name
 
 
 class Messages(models.Model):
@@ -32,3 +44,15 @@ class Messages(models.Model):
         return self.name
 
 
+# Класс для создания списка получателей сообщений из Telegram и почты
+class MessageRecipient(models.Model):
+    name = models.CharField(max_length=50, verbose_name='Имя получателя')
+    email = models.EmailField(verbose_name='Электронная почта')
+    telegram_chat_id = models.CharField(max_length=10, verbose_name='ID чата в Telegram')
+
+    class Meta:
+        verbose_name = 'Внутренний получатель'
+        verbose_name_plural = 'Внутренние получатели'
+
+    def __str__(self):
+        return self.name

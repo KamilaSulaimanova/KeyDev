@@ -68,3 +68,24 @@
     font-size: 18px;
     text-align: center;
 }
+
+
+
+@media (max-width: 1024px){
+    .contacts{
+        padding: 5px 50px;
+        height: 650px;
+    }
+    .contacts-row{
+        display: block;
+    }
+    .contacts-row input{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 800px){
+    .contacts{
+        padding: 5px 20px;
+    }
+}

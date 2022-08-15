@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Messages, Services, Team
+from .models import Messages, Services, Employee, Stack
 
 
 class ServicesSerializer(serializers.ModelSerializer):
@@ -8,10 +8,19 @@ class ServicesSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class TeamSerializer(serializers.ModelSerializer):
+class StackSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Team
-        fields = '__all__'
+        model = Stack
+        fields = ('skill', )
+
+
+class EmployeeSerializer(serializers.ModelSerializer):
+    stack_set = StackSerializer(many=True)
+
+    class Meta:
+        model = Employee
+        fields = ('first_name', 'last_name', 'title', 'facebook', 'linkedin', 'background_color', 'stack_set')
+        related_objects = ('stack')
 
 
 class MessagesSerializer(serializers.ModelSerializer):

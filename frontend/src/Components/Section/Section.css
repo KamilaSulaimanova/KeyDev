@@ -14,7 +14,6 @@
 }
 
 .section-img img{
-    width: 70%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -51,4 +50,32 @@ button{
 
 button:hover{
     background: #dd4722;
+}
+@media (max-width: 1400px){
+    .section{
+        padding: 200px 100px;
+    }
+}
+@media (max-width: 1024px){
+    .section{
+        display: block;
+        padding: 100px 50px;
+    }
+    .section-description{
+        width: 100%;
+    }
+    .section-img{
+        width: 100%;
+    }
+    .section-title{
+        font-size: 30px;
+    }
+}
+@media (max-width: 800px){
+    .section{
+        padding: 100px 20px;
+    }
+    .section-title{
+        font-size: 25px;
+    }
 }
