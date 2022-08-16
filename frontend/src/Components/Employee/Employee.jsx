@@ -30,7 +30,7 @@ export default function Employee() {
           <div className='row'>
             <div className='left-person team-card'>
               <div className='front-side'>
-                <div className='blue team-card-title'>
+                <div className={`${employee.background_color} team-card-title`}>
                   <p>{employee.first_name}</p>
                 </div>
                 <p className='team-card-description'>{employee.title}</p>
